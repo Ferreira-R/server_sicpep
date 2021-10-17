@@ -24,11 +24,20 @@ router.get("/evento/:id", async (req, res) => {
   try {
     const eventoDB = await Nota.findOne({ _id });
     res.json(eventoDB);
-  } catch (err) {
-    return res.status(500).json({
+  } catch (error) {
+    return res.status(400).json({
       mensaje: "Ocurrio un error",
-      err,
+      error,
     });
+  }
+});
+
+router.get("/evento", async (req, res) => {
+  try {
+    const eventoDB = await Nota.find();
+    res.json(eventoDB);
+  } catch (error) {
+    return res.status(400).json({ mensaje: "Ocurrio un error", error });
   }
 });
 

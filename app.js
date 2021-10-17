@@ -40,6 +40,6 @@ app.use(history());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("puerto", process.env.PORT || 3000);
-app.listen(app.get("puerto"), () => {
-  console.log("Example listening on port" + app.get("puerto"));
+app.listen(app.get("puerto"), function () {
+  console.log("Example listening on port " + app.get("puerto"));
 });
